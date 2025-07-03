@@ -1,116 +1,193 @@
-name: WindrawWin Scraper new
+name: Football Predictions Scraper
 
 on:
   schedule:
-    # Run at 06:00 UTC daily
-    - cron: '0 6 * * *'
-    # Run at 09:00 UTC daily  
-    - cron: '0 9 * * *'
-
-  # Allow manual triggering
-  workflow_dispatch:
+    - cron: '0 9 * * *'  # Run daily at 09:00 UTC
+  workflow_dispatch:  # Allow manual triggering
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 30
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Set up Python
+        fetch-depth: 0
+    
+    - name: Set up Python 3.11
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
-
-    - name: Cache pip and Playwright browser deps
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.cache/pip
-          ~/.cache/ms-playwright
-        key: ${{ runner.os }}-cache-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-cache-
-
-    - name: Install dependencies
+        cache: 'pip'
+    
+    - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        python -m playwright install --with-deps
-
-    - name: Run scraper
+        pip install playwright
+    
+    - name: Install Playwright browsers
       run: |
-        python lolopal.py
-
-    - name: Debug - List generated files
+        playwright install chromium
+        playwright install-deps
+    
+    - name: Create logs directory
+      run: mkdir -p logs
+    
+    - name: Run scraper with retries
       run: |
-        echo "=== Current directory contents ==="
-        ls -la
-        echo "=== Git status ==="
-        git status
-        echo "=== Check if JSON exists ==="
+        attempt=1
+        max_attempts=3
+        
+        while [ $attempt -le $max_attempts ]; do
+          echo "Attempt $attempt of $max_attempts"
+          
+          if timeout 900 python lolopal.py; then
+            echo "Scraping successful on attempt $attempt"
+            break
+          else
+            echo "Scraping failed on attempt $attempt"
+            
+            if [ $attempt -eq $max_attempts ]; then
+              echo "All attempts failed. Exiting with failure."
+              exit 1
+            fi
+            
+            echo "Waiting 2 minutes before retry..."
+            sleep 120
+            attempt=$((attempt + 1))
+          fi
+        done
+    
+    - name: Check if JSON file has meaningful data
+      id: check_data
+      run: |
         if [ -f "today_matches.json" ]; then
-          echo "✅ today_matches.json exists"
-          echo "File size: $(wc -c < today_matches.json) bytes"
-          echo "First 200 chars:"
-          head -c 200 today_matches.json
+          file_size=$(stat -c%s "today_matches.json")
+          echo "File size: $file_size bytes"
+          
+          if [ $file_size -gt 2 ]; then
+            # Check if JSON contains actual matches (not just empty array)
+            match_count=$(python -c "
+        import json
+        try:
+            with open('today_matches.json', 'r') as f:
+                data = json.load(f)
+                print(len(data) if isinstance(data, list) else 0)
+        except:
+            print(0)
+        ")
+            echo "Match count: $match_count"
+            
+            if [ $match_count -gt 0 ]; then
+              echo "has_data=true" >> $GITHUB_OUTPUT
+              echo "Found $match_count matches"
+            else
+              echo "has_data=false" >> $GITHUB_OUTPUT
+              echo "No matches found in JSON"
+            fi
+          else
+            echo "has_data=false" >> $GITHUB_OUTPUT
+            echo "JSON file too small or empty"
+          fi
         else
-          echo "❌ today_matches.json does not exist"
+          echo "has_data=false" >> $GITHUB_OUTPUT
+          echo "JSON file not found"
         fi
-
-    - name: Check for changes
-      id: verify-changed-files
+    
+    - name: Append to history log
+      if: always()
       run: |
-        if [[ `git status --porcelain` ]]; then
-          echo "changed=true" >> $GITHUB_OUTPUT
-          echo "✅ Changes detected"
-          git status --porcelain
-        else
-          echo "changed=false" >> $GITHUB_OUTPUT
-          echo "❌ No changes detected"
+        if [ -f "scrape_log.txt" ]; then
+          cat scrape_log.txt >> logs/history.log
+          echo "Log appended to history.log"
         fi
-
-    - name: Commit and push changes
-      if: steps.verify-changed-files.outputs.changed == 'true'
+    
+    - name: Clean up old JSON files
+      run: |
+        # Keep only the last 7 JSON files (including today's)
+        find . -maxdepth 1 -name "*.json" -type f -printf '%T@ %p\n' | \
+        sort -rn | \
+        tail -n +8 | \
+        cut -d' ' -f2- | \
+        while read file; do
+          echo "Removing old file: $file"
+          rm "$file"
+        done
+    
+    - name: Configure Git
+      if: steps.check_data.outputs.has_data == 'true'
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add today_matches.json scrape_log.txt
-        git commit -m "Update matches data - $(date -u +'%Y-%m-%d %H:%M GMT')"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Force commit if no changes detected but files exist
-      if: steps.verify-changed-files.outputs.changed == 'false'
+    
+    - name: Commit and push changes
+      if: steps.check_data.outputs.has_data == 'true'
       run: |
-        if [ -f "today_matches.json" ] || [ -f "scrape_log.txt" ]; then
-          echo "Files exist but no changes detected - force adding"
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add today_matches.json scrape_log.txt
-          if git diff --cached --quiet; then
-            echo "No actual changes to commit"
-          else
-            git commit -m "Force update matches data - $(date -u +'%Y-%m-%d %H:%M GMT')"
-            git push
-          fi
+        # Add files to git
+        git add today_matches.json logs/history.log
+        
+        # Check if there are any changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
         fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload artifacts on failure
-      if: failure()
-      uses: actions/upload-artifact@v4
-      with:
-        name: scraper-logs
-        path: |
-          scrape_log.txt
-          *.log
-        retention-days: 7
+        
+        # Get current date for commit message
+        current_date=$(date -u +"%Y-%m-%d %H:%M UTC")
+        
+        # Get match count for commit message
+        match_count=$(python -c "
+        import json
+        try:
+            with open('today_matches.json', 'r') as f:
+                data = json.load(f)
+                print(len(data) if isinstance(data, list) else 0)
+        except:
+            print(0)
+        ")
+        
+        # Commit and push
+        git commit -m "Update football predictions - $current_date ($match_count matches)"
+        git push
+        
+        echo "Successfully committed and pushed changes"
+    
+    - name: Summary
+      if: always()
+      run: |
+        echo "=== Scraping Summary ==="
+        if [ -f "today_matches.json" ]; then
+          file_size=$(stat -c%s "today_matches.json")
+          match_count=$(python -c "
+        import json
+        try:
+            with open('today_matches.json', 'r') as f:
+                data = json.load(f)
+                print(len(data) if isinstance(data, list) else 0)
+        except:
+            print(0)
+        ")
+          echo "JSON file created: $file_size bytes"
+          echo "Matches found: $match_count"
+          
+          if [ "${{ steps.check_data.outputs.has_data }}" == "true" ]; then
+            echo "Data committed to repository"
+          else
+            echo "No data to commit (empty or invalid JSON)"
+          fi
+        else
+          echo "No JSON file generated"
+        fi
+        
+        if [ -f "scrape_log.txt" ]; then
+          echo "Log file created and appended to history"
+        fi
+        
+        echo "=== End Summary ==="
