@@ -18,7 +18,7 @@ jobs:
         run: |
           pip install requests beautifulsoup4
       - name: Run Scraper
-        run: python scraper.py
+        run: python PREDICTIONS.PY
       - name: Upload JSON
         uses: actions/upload-artifact@v3
         with:
