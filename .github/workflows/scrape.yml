@@ -9,6 +9,7 @@ on:
   
   # Allow manual triggering
   workflow_dispatch:
+
 permissions:
   contents: write
 
@@ -44,13 +45,32 @@ jobs:
       run: |
         python PREDICTIONS.PY
         
+    - name: Debug - List generated files
+      run: |
+        echo "=== Current directory contents ==="
+        ls -la
+        echo "=== Git status ==="
+        git status
+        echo "=== Check if JSON exists ==="
+        if [ -f "today_matches.json" ]; then
+          echo "✅ today_matches.json exists"
+          echo "File size: $(wc -c < today_matches.json) bytes"
+          echo "First 200 chars:"
+          head -c 200 today_matches.json
+        else
+          echo "❌ today_matches.json does not exist"
+        fi
+        
     - name: Check for changes
       id: verify-changed-files
       run: |
         if [[ `git status --porcelain` ]]; then
           echo "changed=true" >> $GITHUB_OUTPUT
+          echo "✅ Changes detected"
+          git status --porcelain
         else
           echo "changed=false" >> $GITHUB_OUTPUT
+          echo "❌ No changes detected"
         fi
         
     - name: Commit and push changes
@@ -61,6 +81,26 @@ jobs:
         git add today_matches.json scrape_log.txt
         git commit -m "Update matches data - $(date -u +'%Y-%m-%d %H:%M GMT')"
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Force commit if no changes detected but files exist
+      if: steps.verify-changed-files.outputs.changed == 'false'
+      run: |
+        if [ -f "today_matches.json" ] || [ -f "scrape_log.txt" ]; then
+          echo "Files exist but no changes detected - force adding"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add today_matches.json scrape_log.txt
+          if git diff --cached --quiet; then
+            echo "No actual changes to commit"
+          else
+            git commit -m "Force update matches data - $(date -u +'%Y-%m-%d %H:%M GMT')"
+            git push
+          fi
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Upload artifacts on failure
       if: failure()
