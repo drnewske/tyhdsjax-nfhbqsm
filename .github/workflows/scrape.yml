@@ -20,7 +20,7 @@ jobs:
       - name: Run Scraper
         run: python PREDICTIONS.PY
       - name: Upload JSON
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: today_matches.json
           path: today_matches.json
