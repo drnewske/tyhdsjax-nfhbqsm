@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-WindrawWin Predictions Scraper
-Scrapes today's football match predictions from windrawwin.com
+WindrawWin Predictions Scraper using Playwright
+Scrapes today's football match predictions from windrawwin.com with Cloudflare bypass
 """
 
 import json
@@ -11,36 +11,19 @@ import random
 import time
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Any
+import asyncio
 
-import requests
-from bs4 import BeautifulSoup
+from playwright.async_api import async_playwright, Browser, Page, TimeoutError as PlaywrightTimeoutError
 
 
 class WindrawWinScraper:
-    """Main scraper class for windrawwin.com predictions"""
+    """Main scraper class for windrawwin.com predictions using Playwright"""
     
     def __init__(self):
         self.base_url = "https://www.windrawwin.com/predictions/today/"
-        self.session = requests.Session()
-        self.setup_session()
         self.setup_logging()
-    
-    def setup_session(self):
-        """Configure requests session with proper headers"""
-        user_agents = [
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-        ]
-        
-        self.session.headers.update({
-            'User-Agent': random.choice(user_agents),
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.5',
-            'Accept-Encoding': 'gzip, deflate',
-            'Connection': 'keep-alive',
-            'Upgrade-Insecure-Requests': '1',
-        })
+        self.browser: Optional[Browser] = None
+        self.page: Optional[Page] = None
     
     def setup_logging(self):
         """Setup logging configuration"""
@@ -50,155 +33,266 @@ class WindrawWinScraper:
         )
         self.logger = logging.getLogger(__name__)
     
-    def fetch_page(self) -> Optional[BeautifulSoup]:
-        """Fetch and parse the main predictions page"""
+    async def setup_browser(self, playwright):
+        """Setup browser with stealth configuration"""
         try:
-            self.logger.info(f"Fetching data from {self.base_url}")
-            response = self.session.get(self.base_url, timeout=30)
-            response.raise_for_status()
+            # Use Chromium with stealth settings for better Cloudflare bypass
+            self.browser = await playwright.chromium.launch(
+                headless=True,
+                args=[
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--disable-accelerated-2d-canvas',
+                    '--no-first-run',
+                    '--no-zygote',
+                    '--single-process',
+                    '--disable-gpu',
+                    '--disable-background-timer-throttling',
+                    '--disable-backgrounding-occluded-windows',
+                    '--disable-renderer-backgrounding',
+                    '--disable-features=TranslateUI',
+                    '--disable-ipc-flooding-protection',
+                    '--disable-blink-features=AutomationControlled',
+                    '--disable-web-security',
+                    '--disable-features=VizDisplayCompositor'
+                ]
+            )
             
-            soup = BeautifulSoup(response.content, 'html.parser')
-            self.logger.info("Successfully fetched and parsed page")
-            return soup
+            # Create context with realistic settings
+            context = await self.browser.new_context(
+                viewport={'width': 1920, 'height': 1080},
+                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                java_script_enabled=True,
+                locale='en-US',
+                timezone_id='America/New_York'
+            )
             
-        except requests.RequestException as e:
-            self.logger.error(f"Error fetching page: {e}")
-            return None
+            # Add stealth scripts to avoid detection
+            await context.add_init_script("""
+                Object.defineProperty(navigator, 'webdriver', {
+                    get: () => undefined,
+                });
+                
+                Object.defineProperty(navigator, 'plugins', {
+                    get: () => [1, 2, 3, 4, 5],
+                });
+                
+                Object.defineProperty(navigator, 'languages', {
+                    get: () => ['en-US', 'en'],
+                });
+                
+                window.chrome = {
+                    runtime: {},
+                };
+                
+                Object.defineProperty(navigator, 'permissions', {
+                    get: () => ({
+                        query: () => Promise.resolve({ state: 'granted' }),
+                    }),
+                });
+            """)
+            
+            self.page = await context.new_page()
+            self.logger.info("Browser setup completed successfully")
+            
         except Exception as e:
-            self.logger.error(f"Unexpected error parsing page: {e}")
-            return None
+            self.logger.error(f"Error setting up browser: {e}")
+            raise
     
-    def extract_teams(self, match_div: BeautifulSoup) -> List[str]:
-        """Extract team names from match div"""
-        teams = []
-        team_divs = match_div.find_all('div', class_='wtmoblnk')
+    async def fetch_page(self) -> bool:
+        """Fetch and load the main predictions page"""
+        max_retries = 3
+        base_delay = 10
         
-        for team_div in team_divs[:2]:  # Only take first 2
-            team_name = team_div.get_text(strip=True)
-            if team_name:
-                teams.append(team_name)
+        for attempt in range(max_retries):
+            try:
+                self.logger.info(f"Fetching data from {self.base_url} (attempt {attempt + 1}/{max_retries})")
+                
+                # Add realistic delay between attempts
+                if attempt > 0:
+                    delay = base_delay * (2 ** (attempt - 1)) + random.uniform(2, 5)
+                    self.logger.info(f"Waiting {delay:.1f} seconds before retry...")
+                    await asyncio.sleep(delay)
+                
+                # Navigate to the page with extended timeout
+                response = await self.page.goto(
+                    self.base_url,
+                    wait_until='networkidle',
+                    timeout=60000  # 60 second timeout
+                )
+                
+                if response:
+                    self.logger.info(f"Response status: {response.status}")
+                    
+                    if response.status == 403:
+                        self.logger.warning(f"403 Forbidden on attempt {attempt + 1}")
+                        if attempt < max_retries - 1:
+                            continue
+                        else:
+                            raise Exception(f"403 Forbidden after {max_retries} attempts")
+                    
+                    if response.status >= 400:
+                        self.logger.warning(f"HTTP {response.status} on attempt {attempt + 1}")
+                        if attempt < max_retries - 1:
+                            continue
+                        else:
+                            raise Exception(f"HTTP {response.status} after {max_retries} attempts")
+                
+                # Wait for page to load completely
+                await self.page.wait_for_load_state('domcontentloaded', timeout=30000)
+                
+                # Check if we're blocked by Cloudflare
+                cloudflare_check = await self.page.locator('text=Checking your browser').count()
+                if cloudflare_check > 0:
+                    self.logger.info("Cloudflare challenge detected, waiting...")
+                    await asyncio.sleep(15)  # Wait for Cloudflare to process
+                    await self.page.wait_for_load_state('networkidle', timeout=30000)
+                
+                # Check for essential content
+                matches_found = await self.page.locator('.wttr').count()
+                if matches_found == 0:
+                    self.logger.warning(f"No match elements found on attempt {attempt + 1}")
+                    if attempt < max_retries - 1:
+                        continue
+                    else:
+                        self.logger.warning("No matches found after all attempts")
+                        return True  # Return True to continue with empty result
+                
+                self.logger.info(f"Successfully loaded page with {matches_found} potential matches")
+                return True
+                
+            except PlaywrightTimeoutError as e:
+                self.logger.error(f"Timeout error on attempt {attempt + 1}: {e}")
+                if attempt == max_retries - 1:
+                    raise Exception(f"Timeout after {max_retries} attempts")
+            except Exception as e:
+                self.logger.error(f"Error on attempt {attempt + 1}: {e}")
+                if attempt == max_retries - 1:
+                    raise
         
-        return teams
+        return False
     
-    def extract_form(self, match_div: BeautifulSoup, team_num: int) -> List[str]:
-        """Extract team form (last 5 matches)"""
-        class_name = 'wtl5contl' if team_num == 1 else 'wtl5contr'
-        form_container = match_div.find('div', class_=class_name)
-        
-        if not form_container:
-            return []
-        
-        form = []
-        form_divs = form_container.find_all('div')
-        
-        for div in form_divs:
-            if 'last5w' in div.get('class', []):
-                form.append('W')
-            elif 'last5d' in div.get('class', []):
-                form.append('D')
-            elif 'last5l' in div.get('class', []):
-                form.append('L')
-        
-        return form[:5]  # Limit to 5 results
-    
-    def extract_fixture(self, match_div: BeautifulSoup) -> str:
-        """Extract fixture information"""
-        fixture_div = match_div.find('div', class_='wtdesklnk')
-        return fixture_div.get_text(strip=True) if fixture_div else ""
-    
-    def extract_odds(self, match_div: BeautifulSoup) -> Dict[str, List[str]]:
-        """Extract all odds information"""
-        odds = {
-            "1x2": [],
-            "over_under": [],
-            "btts": []
-        }
-        
-        # Extract 1x2 odds
-        odds_1x2 = match_div.find('div', class_='wtmo')
-        if odds_1x2:
-            odds_cells = odds_1x2.find_all('div', class_='wtocell')
-            for cell in odds_cells:
-                link = cell.find('a')
-                if link:
-                    odds["1x2"].append(link.get_text(strip=True))
-        
-        # Extract over/under odds
-        odds_ou = match_div.find('div', class_='wtou')
-        if odds_ou:
-            odds_cells = odds_ou.find_all('div', class_='wtocell')
-            for cell in odds_cells:
-                link = cell.find('a')
-                if link:
-                    odds["over_under"].append(link.get_text(strip=True))
-        
-        # Extract BTTS odds
-        odds_btts = match_div.find('div', class_='wtbt')
-        if odds_btts:
-            odds_cells = odds_btts.find_all('div', class_='wtocell')
-            for cell in odds_cells:
-                link = cell.find('a')
-                if link:
-                    odds["btts"].append(link.get_text(strip=True))
-        
-        return odds
-    
-    def extract_prediction(self, match_div: BeautifulSoup) -> str:
-        """Extract prediction"""
-        prediction_div = match_div.find('div', class_='wtprd')
-        return prediction_div.get_text(strip=True) if prediction_div else ""
-    
-    def extract_score(self, match_div: BeautifulSoup) -> str:
-        """Extract predicted score"""
-        score_div = match_div.find('div', class_='wtsc')
-        return score_div.get_text(strip=True) if score_div else ""
-    
-    def parse_match(self, match_div: BeautifulSoup) -> Optional[Dict[str, Any]]:
-        """Parse a single match div and extract all required data"""
+    async def extract_match_data(self, match_locator) -> Optional[Dict[str, Any]]:
+        """Extract data from a single match element"""
         try:
             match_data = {
-                "teams": self.extract_teams(match_div),
-                "team1_form": self.extract_form(match_div, 1),
-                "team2_form": self.extract_form(match_div, 2),
-                "fixture": self.extract_fixture(match_div),
-                "odds": self.extract_odds(match_div),
-                "prediction": self.extract_prediction(match_div),
-                "score": self.extract_score(match_div)
+                "teams": [],
+                "time": "",
+                "league": "",
+                "prediction": "",
+                "confidence": "",
+                "odds": {
+                    "1x2": [],
+                    "over_under": [],
+                    "btts": []
+                }
             }
             
-            # Only return if we have essential data
-            if match_data["teams"] and len(match_data["teams"]) >= 2:
+            # Extract team names
+            team_elements = match_locator.locator('.wtmoblnk')
+            team_count = await team_elements.count()
+            
+            for i in range(min(team_count, 2)):
+                team_name = await team_elements.nth(i).text_content()
+                if team_name:
+                    match_data["teams"].append(team_name.strip())
+            
+            # Extract time/fixture info
+            fixture_element = match_locator.locator('.wtdesklnk')
+            if await fixture_element.count() > 0:
+                fixture_text = await fixture_element.text_content()
+                if fixture_text:
+                    match_data["time"] = fixture_text.strip()
+            
+            # Extract league info (if available)
+            league_element = match_locator.locator('.wtcompet')
+            if await league_element.count() > 0:
+                league_text = await league_element.text_content()
+                if league_text:
+                    match_data["league"] = league_text.strip()
+            
+            # Extract prediction
+            prediction_element = match_locator.locator('.wtprd')
+            if await prediction_element.count() > 0:
+                prediction_text = await prediction_element.text_content()
+                if prediction_text:
+                    match_data["prediction"] = prediction_text.strip()
+            
+            # Extract confidence (if available)
+            confidence_element = match_locator.locator('.wtconf')
+            if await confidence_element.count() > 0:
+                confidence_text = await confidence_element.text_content()
+                if confidence_text:
+                    match_data["confidence"] = confidence_text.strip()
+            
+            # Extract 1x2 odds
+            odds_1x2_element = match_locator.locator('.wtmo .wtocell a')
+            odds_1x2_count = await odds_1x2_element.count()
+            for i in range(odds_1x2_count):
+                odds_text = await odds_1x2_element.nth(i).text_content()
+                if odds_text:
+                    match_data["odds"]["1x2"].append(odds_text.strip())
+            
+            # Extract over/under odds
+            odds_ou_element = match_locator.locator('.wtou .wtocell a')
+            odds_ou_count = await odds_ou_element.count()
+            for i in range(odds_ou_count):
+                odds_text = await odds_ou_element.nth(i).text_content()
+                if odds_text:
+                    match_data["odds"]["over_under"].append(odds_text.strip())
+            
+            # Extract BTTS odds
+            odds_btts_element = match_locator.locator('.wtbt .wtocell a')
+            odds_btts_count = await odds_btts_element.count()
+            for i in range(odds_btts_count):
+                odds_text = await odds_btts_element.nth(i).text_content()
+                if odds_text:
+                    match_data["odds"]["btts"].append(odds_text.strip())
+            
+            # Only return if we have essential data (at least teams)
+            if len(match_data["teams"]) >= 2:
                 return match_data
             
             return None
             
         except Exception as e:
-            self.logger.error(f"Error parsing match: {e}")
+            self.logger.error(f"Error extracting match data: {e}")
             return None
     
-    def scrape_matches(self) -> List[Dict[str, Any]]:
+    async def scrape_matches(self) -> List[Dict[str, Any]]:
         """Main scraping function to get all today's matches"""
-        soup = self.fetch_page()
-        if not soup:
+        success = await self.fetch_page()
+        if not success:
             return []
         
         matches = []
-        match_divs = soup.find_all('div', class_='wttr')
         
-        self.logger.info(f"Found {len(match_divs)} potential match divs")
+        try:
+            # Find all match elements
+            match_elements = self.page.locator('.wttr')
+            match_count = await match_elements.count()
+            
+            self.logger.info(f"Found {match_count} potential match elements")
+            
+            for i in range(match_count):
+                match_element = match_elements.nth(i)
+                match_data = await self.extract_match_data(match_element)
+                
+                if match_data:
+                    matches.append(match_data)
+                    self.logger.debug(f"Extracted match: {match_data['teams']}")
+            
+            self.logger.info(f"Successfully extracted {len(matches)} matches")
+            
+        except Exception as e:
+            self.logger.error(f"Error scraping matches: {e}")
         
-        for match_div in match_divs:
-            match_data = self.parse_match(match_div)
-            if match_data:
-                matches.append(match_data)
-        
-        self.logger.info(f"Successfully parsed {len(matches)} matches")
         return matches
     
     def save_data(self, matches: List[Dict[str, Any]]) -> bool:
         """Save matches data to JSON file"""
         try:
-            # Get current working directory
             current_dir = os.getcwd()
             json_path = os.path.join(current_dir, 'today_matches.json')
             
@@ -207,7 +301,6 @@ class WindrawWinScraper:
             with open(json_path, 'w', encoding='utf-8') as f:
                 json.dump(matches, f, indent=2, ensure_ascii=False)
             
-            # Verify file was created
             if os.path.exists(json_path):
                 file_size = os.path.getsize(json_path)
                 self.logger.info(f"✅ Data saved successfully to {json_path} ({file_size} bytes, {len(matches)} matches)")
@@ -240,48 +333,66 @@ class WindrawWinScraper:
         except Exception as e:
             self.logger.error(f"Error writing to log file: {e}")
     
-    def run(self):
+    async def cleanup(self):
+        """Clean up browser resources"""
+        try:
+            if self.browser:
+                await self.browser.close()
+                self.logger.info("Browser closed successfully")
+        except Exception as e:
+            self.logger.error(f"Error closing browser: {e}")
+    
+    async def run(self):
         """Main execution function"""
         try:
-            self.logger.info("Starting WindrawWin scraper...")
+            self.logger.info("Starting WindrawWin scraper with Playwright...")
             self.logger.info(f"Working directory: {os.getcwd()}")
             
-            # Add small delay to avoid being too aggressive
-            time.sleep(random.uniform(1, 3))
-            
-            matches = self.scrape_matches()
-            
-            if matches:
-                self.logger.info(f"Found {len(matches)} matches to save")
+            # Setup browser
+            async with async_playwright() as p:
+                await self.setup_browser(p)
+                
+                # Add initial realistic delay
+                initial_delay = random.uniform(3, 8)
+                self.logger.info(f"Initial delay: {initial_delay:.1f} seconds")
+                await asyncio.sleep(initial_delay)
+                
+                # Scrape matches
+                matches = await self.scrape_matches()
+                
+                # Always save data (even if empty)
                 success = self.save_data(matches)
-                if success:
+                
+                if success and matches:
                     self.log_result(True, len(matches))
                     self.logger.info("✅ Scraping completed successfully")
+                elif success and not matches:
+                    self.log_result(False, error_msg="No matches found or extracted")
+                    self.logger.warning("⚠️ No matches found, but saved empty file")
                 else:
                     self.log_result(False, error_msg="Failed to save data to file")
                     self.logger.error("❌ Failed to save data")
-            else:
-                self.logger.warning("No matches found")
-                # Still create empty JSON file for consistency
-                self.save_data([])
-                self.log_result(False, error_msg="No matches found or parsing failed")
                 
         except Exception as e:
             error_msg = f"Unexpected error: {str(e)}"
             self.logger.error(error_msg)
             self.log_result(False, error_msg=error_msg)
-            # Create empty JSON on error
+            
+            # Try to save empty file on error
             try:
                 self.save_data([])
             except:
                 pass
+        
+        finally:
+            await self.cleanup()
 
 
-def main():
+async def main():
     """Main entry point"""
     scraper = WindrawWinScraper()
-    scraper.run()
+    await scraper.run()
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
