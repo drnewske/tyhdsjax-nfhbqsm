@@ -1,4 +1,4 @@
-name: WindrawWin Scraper
+name: WindrawWin Scraper new
 
 on:
   schedule:
@@ -46,7 +46,7 @@ jobs:
 
     - name: Run scraper
       run: |
-        python PREDICTIONS.PY
+        python lolopal.py
 
     - name: Debug - List generated files
       run: |
