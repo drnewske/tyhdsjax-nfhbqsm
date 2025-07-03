@@ -1,68 +1,60 @@
-import json
+import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
+import json
 import os
 
-HTML_FILE = "your_html_file.html"
+URL = "https://www.windrawwin.com/predictions/today/"
 JSON_FILE = "today_matches.json"
 LOG_FILE = "scraper_log.txt"
 
-def log_event(message):
+def log(msg):
     now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S GMT")
-    with open(LOG_FILE, "a", encoding="utf-8") as log:
-        log.write(f"[{now}] {message}\n")
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(f"[{now}] {msg}\n")
 
 def parse_match(div):
-    def grab_text(selector, count=None):
-        elems = div.select(selector)
-        return [e.get_text(strip=True) for e in elems][:count] if elems else []
-
-    def grab_single(selector):
-        el = div.select_one(selector)
-        return el.get_text(strip=True) if el else None
+    def gt(sel): return [e.get_text(strip=True) for e in div.select(sel)]
+    def gs(sel): return (div.select_one(sel).get_text(strip=True) if div.select_one(sel) else None)
 
     return {
-        "teams": grab_text(".wtmoblnk", 2),
-        "team1_form": grab_text(".wtl5contl .last5w, .wtl5contl .last5d, .wtl5contl .last5l"),
-        "team2_form": grab_text(".wtl5contr .last5w, .wtl5contr .last5d, .wtl5contr .last5l"),
-        "fixture": grab_single(".wtdesklnk"),
+        "teams": gt(".wtmoblnk")[:2],
+        "team1_form": gt(".wtl5contl .last5w, .wtl5contl .last5d, .wtl5contl .last5l"),
+        "team2_form": gt(".wtl5contr .last5w, .wtl5contr .last5d, .wtl5contr .last5l"),
+        "fixture": gs(".wtdesklnk"),
         "odds": {
-            "1x2": grab_text(".wtmo .wtocell a"),
-            "over_under": grab_text(".wtou .wtocell a"),
-            "btts": grab_text(".wtbt .wtocell a"),
+            "1x2": gt(".wtmo .wtocell a"),
+            "over_under": gt(".wtou .wtocell a"),
+            "btts": gt(".wtbt .wtocell a"),
         },
-        "prediction": grab_single(".wtprd"),
-        "score": grab_single(".wtsc")
+        "prediction": gs(".wtprd"),
+        "score": gs(".wtsc")
     }
 
-def run_scraper():
+def scrape_and_save():
     try:
-        with open(HTML_FILE, "r", encoding="utf-8") as f:
-            soup = BeautifulSoup(f, "html.parser")
+        resp = requests.get(URL, timeout=10)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, "html.parser")
 
-        matches = [parse_match(div) for div in soup.select(".wttr")]
-
+        matches = [parse_match(d) for d in soup.select(".wttr")]
         with open(JSON_FILE, "w", encoding="utf-8") as f:
             json.dump(matches, f, indent=2)
 
-        log_event(f"✅ Scrape successful. {len(matches)} matches saved.")
+        log(f"✅ Scraped {len(matches)} matches; JSON overwritten.")
     except Exception as e:
-        log_event(f"❌ Scrape failed: {str(e)}")
+        log(f"❌ Scrape failed: {e!s}")
 
-def scheduler_loop():
+def schedule():
+    log("🔄 Scraper started")
     while True:
         now = datetime.utcnow()
-        hour = now.hour
-        minute = now.minute
-
-        # Run only at 06:00 or 09:00 GMT
-        if hour in [6, 9] and minute == 0:
-            run_scraper()
-            time.sleep(60)  # Wait a minute to avoid duplicate runs
-        time.sleep(30)  # Check every 30 seconds
+        if now.hour in [6, 9] and now.minute == 0:
+            scrape_and_save()
+            time.sleep(61)  # avoid double trigger
+        time.sleep(30)
 
 if __name__ == "__main__":
-    log_event("🔄 Scraper started.")
-    run_scraper()  # Optional: first run now
-    scheduler_loop()
+    scrape_and_save()
+    schedule()
