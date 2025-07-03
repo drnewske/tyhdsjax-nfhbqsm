@@ -1,0 +1,26 @@
+name: Daily WindrawWin Scraper
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 06:00 UTC daily
+    - cron: '0 9 * * *'  # 09:00 UTC daily
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install Requirements
+        run: |
+          pip install requests beautifulsoup4
+      - name: Run Scraper
+        run: python scraper.py
+      - name: Upload JSON
+        uses: actions/upload-artifact@v3
+        with:
+          name: today_matches.json
+          path: today_matches.json
