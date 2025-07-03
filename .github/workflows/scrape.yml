@@ -9,6 +9,8 @@ on:
   
   # Allow manual triggering
   workflow_dispatch:
+permissions:
+  contents: write
 
 jobs:
   scrape:
