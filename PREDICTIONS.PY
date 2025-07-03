@@ -198,11 +198,23 @@ class WindrawWinScraper:
     def save_data(self, matches: List[Dict[str, Any]]) -> bool:
         """Save matches data to JSON file"""
         try:
-            with open('today_matches.json', 'w', encoding='utf-8') as f:
+            # Get current working directory
+            current_dir = os.getcwd()
+            json_path = os.path.join(current_dir, 'today_matches.json')
+            
+            self.logger.info(f"Saving data to: {json_path}")
+            
+            with open(json_path, 'w', encoding='utf-8') as f:
                 json.dump(matches, f, indent=2, ensure_ascii=False)
             
-            self.logger.info(f"Data saved to today_matches.json ({len(matches)} matches)")
-            return True
+            # Verify file was created
+            if os.path.exists(json_path):
+                file_size = os.path.getsize(json_path)
+                self.logger.info(f"✅ Data saved successfully to {json_path} ({file_size} bytes, {len(matches)} matches)")
+                return True
+            else:
+                self.logger.error(f"❌ File was not created at {json_path}")
+                return False
             
         except Exception as e:
             self.logger.error(f"Error saving data: {e}")
@@ -211,6 +223,8 @@ class WindrawWinScraper:
     def log_result(self, success: bool, matches_count: int = 0, error_msg: str = ""):
         """Log scraping result to file"""
         try:
+            current_dir = os.getcwd()
+            log_path = os.path.join(current_dir, 'scrape_log.txt')
             timestamp = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M GMT')
             
             if success:
@@ -218,10 +232,10 @@ class WindrawWinScraper:
             else:
                 log_entry = f"[{timestamp}] Failed. Reason: {error_msg}\n"
             
-            with open('scrape_log.txt', 'a', encoding='utf-8') as f:
+            with open(log_path, 'a', encoding='utf-8') as f:
                 f.write(log_entry)
             
-            self.logger.info(f"Log entry added: {log_entry.strip()}")
+            self.logger.info(f"Log entry added to {log_path}: {log_entry.strip()}")
             
         except Exception as e:
             self.logger.error(f"Error writing to log file: {e}")
@@ -230,6 +244,7 @@ class WindrawWinScraper:
         """Main execution function"""
         try:
             self.logger.info("Starting WindrawWin scraper...")
+            self.logger.info(f"Working directory: {os.getcwd()}")
             
             # Add small delay to avoid being too aggressive
             time.sleep(random.uniform(1, 3))
@@ -237,19 +252,29 @@ class WindrawWinScraper:
             matches = self.scrape_matches()
             
             if matches:
+                self.logger.info(f"Found {len(matches)} matches to save")
                 success = self.save_data(matches)
                 if success:
                     self.log_result(True, len(matches))
-                    self.logger.info("Scraping completed successfully")
+                    self.logger.info("✅ Scraping completed successfully")
                 else:
                     self.log_result(False, error_msg="Failed to save data to file")
+                    self.logger.error("❌ Failed to save data")
             else:
+                self.logger.warning("No matches found")
+                # Still create empty JSON file for consistency
+                self.save_data([])
                 self.log_result(False, error_msg="No matches found or parsing failed")
                 
         except Exception as e:
             error_msg = f"Unexpected error: {str(e)}"
             self.logger.error(error_msg)
             self.log_result(False, error_msg=error_msg)
+            # Create empty JSON on error
+            try:
+                self.save_data([])
+            except:
+                pass
 
 
 def main():
