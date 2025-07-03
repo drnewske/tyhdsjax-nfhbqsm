@@ -6,7 +6,7 @@ on:
     - cron: '0 6 * * *'
     # Run at 09:00 UTC daily  
     - cron: '0 9 * * *'
-  
+
   # Allow manual triggering
   workflow_dispatch:
 
@@ -16,36 +16,38 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
-        
-    - name: Cache pip dependencies
+
+    - name: Cache pip and Playwright browser deps
       uses: actions/cache@v3
       with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        path: |
+          ~/.cache/pip
+          ~/.cache/ms-playwright
+        key: ${{ runner.os }}-cache-${{ hashFiles('**/requirements.txt') }}
         restore-keys: |
-          ${{ runner.os }}-pip-
-          
+          ${{ runner.os }}-cache-
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        playwright install --with-deps 
-        
+        python -m playwright install --with-deps
+
     - name: Run scraper
       run: |
         python PREDICTIONS.PY
-        
+
     - name: Debug - List generated files
       run: |
         echo "=== Current directory contents ==="
@@ -61,7 +63,7 @@ jobs:
         else
           echo "❌ today_matches.json does not exist"
         fi
-        
+
     - name: Check for changes
       id: verify-changed-files
       run: |
@@ -73,7 +75,7 @@ jobs:
           echo "changed=false" >> $GITHUB_OUTPUT
           echo "❌ No changes detected"
         fi
-        
+
     - name: Commit and push changes
       if: steps.verify-changed-files.outputs.changed == 'true'
       run: |
@@ -84,7 +86,7 @@ jobs:
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+
     - name: Force commit if no changes detected but files exist
       if: steps.verify-changed-files.outputs.changed == 'false'
       run: |
@@ -102,7 +104,7 @@ jobs:
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+
     - name: Upload artifacts on failure
       if: failure()
       uses: actions/upload-artifact@v4
