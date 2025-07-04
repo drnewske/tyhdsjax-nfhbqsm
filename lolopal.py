@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Enhanced WindrawWin Predictions Scraper using Playwright
-Fixed version with precise odds extraction using positional awareness
+Simplified WindrawWin Predictions Scraper using Playwright
+Focuses on teams, predictions, and form data only
 """
 
 import json
@@ -17,11 +17,15 @@ import re
 from playwright.async_api import async_playwright, Browser, Page, TimeoutError as PlaywrightTimeoutError
 
 
-class EnhancedWindrawWinScraper:
-    """Enhanced scraper class for windrawwin.com predictions using Playwright"""
+class SimplifiedWindrawWinScraper:
+    """Simplified scraper class for windrawwin.com predictions using Playwright"""
     
     def __init__(self):
         self.base_url = "https://www.windrawwin.com/predictions/today/"
+        self.bet_urls = [
+            "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599",
+            "stake.com/?c=Z6Kt1NA0"
+        ]
         self.setup_logging()
         self.browser: Optional[Browser] = None
         self.page: Optional[Page] = None
@@ -179,67 +183,28 @@ class EnhancedWindrawWinScraper:
         text = text.replace('&nbsp;', '').replace('&amp;', '&')
         return text
     
-    def extract_league_from_fixture(self, fixture_text: str) -> str:
-        """Extract league information from fixture text or URL"""
-        if not fixture_text:
-            return ""
-        
-        # Common league patterns
-        league_patterns = [
-            r'finland-ykkonen',
-            r'finland-kakkonen', 
-            r'uzbekistan-super-league',
-            r'club-world-cup',
-            r'ireland-premier-division',
-            r'england-premier-league',
-            r'spain-la-liga',
-            r'germany-bundesliga',
-            r'italy-serie-a',
-            r'france-ligue-1'
-        ]
-        
-        for pattern in league_patterns:
-            if re.search(pattern, fixture_text, re.IGNORECASE):
-                return pattern.replace('-', ' ').title()
-        
-        return ""
+    def get_random_bet_url(self) -> str:
+        """Get a random betting URL"""
+        return random.choice(self.bet_urls)
     
     async def extract_match_data(self, match_locator) -> Optional[Dict[str, Any]]:
-        """Extract data from a single match element with enhanced parsing"""
+        """Extract simplified data from a single match element"""
         try:
             match_data = {
                 "teams": {
                     "home": "",
                     "away": ""
                 },
-                "fixture": "",
-                "league": "",
                 "prediction": {
                     "type": "",
                     "stake": "",
                     "score": ""
                 },
-                "odds": {
-                    "match_odds": {
-                        "home": "",
-                        "draw": "",
-                        "away": ""
-                    },
-                    "over_under": {
-                        "over": "",
-                        "under": ""
-                    },
-                    "btts": {
-                        "yes": "",
-                        "no": ""
-                    }
-                },
                 "form": {
                     "home": [],
                     "away": []
                 },
-                "has_odds": False,
-                "match_url": ""
+                "place_bet": ""
             }
             
             # Extract team names
@@ -257,19 +222,6 @@ class EnhancedWindrawWinScraper:
                     return None
             else:
                 return None
-            
-            # Extract fixture info and URL
-            fixture_element = match_locator.locator('.wtdesklnk')
-            if await fixture_element.count() > 0:
-                fixture_text = await fixture_element.text_content()
-                fixture_url = await fixture_element.get_attribute('href')
-                
-                if fixture_text:
-                    match_data["fixture"] = self.clean_text(fixture_text)
-                
-                if fixture_url:
-                    match_data["match_url"] = fixture_url
-                    match_data["league"] = self.extract_league_from_fixture(fixture_url)
             
             # Extract prediction details
             stake_element = match_locator.locator('.wtstk')
@@ -289,99 +241,6 @@ class EnhancedWindrawWinScraper:
                 score_text = await score_element.text_content()
                 if score_text:
                     match_data["prediction"]["score"] = self.clean_text(score_text)
-            
-            # FIXED ODDS EXTRACTION - Using positional awareness
-            # All odds are in .wtocell elements, but in specific order
-            all_odds_elements = match_locator.locator('.wtocell a')
-            odds_count = await all_odds_elements.count()
-            
-            self.logger.debug(f"Found {odds_count} odds elements for {match_data['teams']['home']} vs {match_data['teams']['away']}")
-            
-            if odds_count >= 7:  # Should have 7 odds total (3 + 2 + 2)
-                match_data["has_odds"] = True
-                
-                # Extract 1X2 odds (positions 0, 1, 2)
-                try:
-                    home_odds = await all_odds_elements.nth(0).text_content()
-                    draw_odds = await all_odds_elements.nth(1).text_content()
-                    away_odds = await all_odds_elements.nth(2).text_content()
-                    
-                    if home_odds:
-                        match_data["odds"]["match_odds"]["home"] = self.clean_text(home_odds)
-                    if draw_odds:
-                        match_data["odds"]["match_odds"]["draw"] = self.clean_text(draw_odds)
-                    if away_odds:
-                        match_data["odds"]["match_odds"]["away"] = self.clean_text(away_odds)
-                    
-                    self.logger.debug(f"1X2 odds: {home_odds} | {draw_odds} | {away_odds}")
-                except Exception as e:
-                    self.logger.warning(f"Error extracting 1X2 odds: {e}")
-                
-                # Extract Over/Under odds (positions 3, 4)
-                try:
-                    over_odds = await all_odds_elements.nth(3).text_content()
-                    under_odds = await all_odds_elements.nth(4).text_content()
-                    
-                    if over_odds:
-                        match_data["odds"]["over_under"]["over"] = self.clean_text(over_odds)
-                    if under_odds:
-                        match_data["odds"]["over_under"]["under"] = self.clean_text(under_odds)
-                    
-                    self.logger.debug(f"O/U odds: {over_odds} | {under_odds}")
-                except Exception as e:
-                    self.logger.warning(f"Error extracting O/U odds: {e}")
-                
-                # Extract BTTS odds (positions 5, 6)
-                try:
-                    btts_yes = await all_odds_elements.nth(5).text_content()
-                    btts_no = await all_odds_elements.nth(6).text_content()
-                    
-                    if btts_yes:
-                        match_data["odds"]["btts"]["yes"] = self.clean_text(btts_yes)
-                    if btts_no:
-                        match_data["odds"]["btts"]["no"] = self.clean_text(btts_no)
-                    
-                    self.logger.debug(f"BTTS odds: {btts_yes} | {btts_no}")
-                except Exception as e:
-                    self.logger.warning(f"Error extracting BTTS odds: {e}")
-            
-            else:
-                self.logger.warning(f"Expected 7 odds elements, found {odds_count}")
-                # Try alternative approach - look for specific containers
-                
-                # Try extracting from specific sections
-                try:
-                    # Match odds from .wtmo section
-                    match_odds_section = match_locator.locator('.wtmo .wtocell a')
-                    mo_count = await match_odds_section.count()
-                    if mo_count >= 3:
-                        match_data["odds"]["match_odds"]["home"] = self.clean_text(await match_odds_section.nth(0).text_content())
-                        match_data["odds"]["match_odds"]["draw"] = self.clean_text(await match_odds_section.nth(1).text_content())
-                        match_data["odds"]["match_odds"]["away"] = self.clean_text(await match_odds_section.nth(2).text_content())
-                        self.logger.debug(f"Match odds via .wtmo: {mo_count} found")
-                    
-                    # Over/Under from .wtou section  
-                    ou_section = match_locator.locator('.wtou .wtocell a')
-                    ou_count = await ou_section.count()
-                    if ou_count >= 2:
-                        match_data["odds"]["over_under"]["over"] = self.clean_text(await ou_section.nth(0).text_content())
-                        match_data["odds"]["over_under"]["under"] = self.clean_text(await ou_section.nth(1).text_content())
-                        self.logger.debug(f"O/U odds via .wtou: {ou_count} found")
-                    
-                    # BTTS from .wtbt section
-                    btts_section = match_locator.locator('.wtbt .wtocell a')
-                    btts_count = await btts_section.count()
-                    if btts_count >= 2:
-                        match_data["odds"]["btts"]["yes"] = self.clean_text(await btts_section.nth(0).text_content())
-                        match_data["odds"]["btts"]["no"] = self.clean_text(await btts_section.nth(1).text_content())
-                        self.logger.debug(f"BTTS odds via .wtbt: {btts_count} found")
-                    
-                    # Set has_odds if any odds were found
-                    if mo_count >= 3 or ou_count >= 2 or btts_count >= 2:
-                        match_data["has_odds"] = True
-                        
-                except Exception as e:
-                    self.logger.warning(f"Error in alternative odds extraction: {e}")
             
             # Extract team form (last 5 results)
             try:
@@ -415,6 +274,9 @@ class EnhancedWindrawWinScraper:
             
             except Exception as e:
                 self.logger.warning(f"Error extracting team form: {e}")
+            
+            # Add random betting URL
+            match_data["place_bet"] = self.get_random_bet_url()
             
             # Only return if we have essential data
             if match_data["teams"]["home"] and match_data["teams"]["away"]:
@@ -457,7 +319,7 @@ class EnhancedWindrawWinScraper:
         return matches
     
     def save_data(self, matches: List[Dict[str, Any]]) -> bool:
-        """Save matches data to JSON file with enhanced formatting"""
+        """Save matches data to JSON file with simplified structure"""
         try:
             current_dir = os.getcwd()
             json_path = os.path.join(current_dir, 'today_matches.json')
@@ -467,8 +329,6 @@ class EnhancedWindrawWinScraper:
                 "scrape_info": {
                     "timestamp": datetime.now(timezone.utc).isoformat(),
                     "total_matches": len(matches),
-                    "matches_with_odds": len([m for m in matches if m.get("has_odds", False)]),
-                    "matches_without_odds": len([m for m in matches if not m.get("has_odds", False)]),
                     "source_url": self.base_url
                 },
                 "matches": matches
@@ -523,7 +383,7 @@ class EnhancedWindrawWinScraper:
     async def run(self):
         """Main execution function"""
         try:
-            self.logger.info("Starting Enhanced WindrawWin scraper...")
+            self.logger.info("Starting Simplified WindrawWin scraper...")
             self.logger.info(f"Working directory: {os.getcwd()}")
             
             async with async_playwright() as p:
@@ -542,7 +402,7 @@ class EnhancedWindrawWinScraper:
                 
                 if success and matches:
                     self.log_result(True, len(matches))
-                    self.logger.info("✅ Enhanced scraping completed successfully")
+                    self.logger.info("✅ Simplified scraping completed successfully")
                 elif success and not matches:
                     self.log_result(False, error_msg="No matches found or extracted")
                     self.logger.warning("⚠️ No matches found, but saved empty file")
@@ -567,7 +427,7 @@ class EnhancedWindrawWinScraper:
 
 async def main():
     """Main entry point"""
-    scraper = EnhancedWindrawWinScraper()
+    scraper = SimplifiedWindrawWinScraper()
     await scraper.run()
 
 
