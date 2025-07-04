@@ -1,1 +1,1253 @@
-[]
+{
+  "scrape_info": {
+    "timestamp": "2025-07-04T06:16:27.713994+00:00",
+    "total_matches": 27,
+    "matches_with_odds": 10,
+    "matches_without_odds": 17,
+    "source_url": "https://www.windrawwin.com/predictions/today/"
+  },
+  "matches": [
+    {
+      "teams": {
+        "home": "Fluminense",
+        "away": "Al Hilal"
+      },
+      "fixture": "Fluminense v Al Hilal",
+      "league": "Club World Cup",
+      "prediction": {
+        "type": "Draw",
+        "stake": "Medium",
+        "score": "1-1"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "180",
+          "draw": "230",
+          "away": "155"
+        },
+        "over_under": {
+          "over": "120",
+          "under": "-154"
+        },
+        "btts": {
+          "yes": "-111",
+          "no": "-111"
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "W",
+          "D",
+          "W"
+        ],
+        "away": [
+          "W",
+          "D",
+          "D",
+          "W",
+          "W"
+        ]
+      },
+      "has_odds": true,
+      "match_url": "https://www.windrawwin.com/tips/club-world-cup/fluminense-v-al-hilal/833918/"
+    },
+    {
+      "teams": {
+        "home": "Derry City",
+        "away": "Waterford"
+      },
+      "fixture": "Derry City v Waterford",
+      "league": "Ireland Premier Division",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "1-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "-182",
+          "draw": "290",
+          "away": "500"
+        },
+        "over_under": {
+          "over": "-106",
+          "under": "-118"
+        },
+        "btts": {
+          "yes": "100",
+          "no": "-134"
+        }
+      },
+      "form": {
+        "home": [
+          "L",
+          "D",
+          "W",
+          "W",
+          "W"
+        ],
+        "away": [
+          "D",
+          "L",
+          "W",
+          "D",
+          "L"
+        ]
+      },
+      "has_odds": true,
+      "match_url": "https://www.windrawwin.com/tips/ireland-premier-division/derry-city-v-waterford/807483/"
+    },
+    {
+      "teams": {
+        "home": "Drogheda Utd",
+        "away": "Galway Utd"
+      },
+      "fixture": "Drogheda Utd v Galway Utd",
+      "league": "Ireland Premier Division",
+      "prediction": {
+        "type": "Draw",
+        "stake": "Large",
+        "score": "1-1"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "140",
+          "draw": "220",
+          "away": "200"
+        },
+        "over_under": {
+          "over": "125",
+          "under": "-163"
+        },
+        "btts": {
+          "yes": "-106",
+          "no": "-125"
+        }
+      },
+      "form": {
+        "home": [
+          "D",
+          "L",
+          "W",
+          "D",
+          "L"
+        ],
+        "away": [
+          "D",
+          "D",
+          "W",
+          "L",
+          "D"
+        ]
+      },
+      "has_odds": true,
+      "match_url": "https://www.windrawwin.com/tips/ireland-premier-division/drogheda-utd-v-galway-utd/807484/"
+    },
+    {
+      "teams": {
+        "home": "Shelbourne",
+        "away": "Cork"
+      },
+      "fixture": "Shelbourne v Cork",
+      "league": "Ireland Premier Division",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "2-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "-175",
+          "draw": "290",
+          "away": "500"
+        },
+        "over_under": {
+          "over": "100",
+          "under": "-125"
+        },
+        "btts": {
+          "yes": "105",
+          "no": "-143"
+        }
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "L",
+          "D",
+          "D"
+        ],
+        "away": [
+          "D",
+          "L",
+          "L",
+          "D",
+          "D"
+        ]
+      },
+      "has_odds": true,
+      "match_url": "https://www.windrawwin.com/tips/ireland-premier-division/shelbourne-v-cork/807485/"
+    },
+    {
+      "teams": {
+        "home": "St Patricks",
+        "away": "Bohemians"
+      },
+      "fixture": "St Patricks v Bohemians",
+      "league": "Ireland Premier Division",
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Medium",
+        "score": "0-1"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "162",
+          "draw": "225",
+          "away": "162"
+        },
+        "over_under": {
+          "over": "115",
+          "under": "-150"
+        },
+        "btts": {
+          "yes": "-111",
+          "no": "-111"
+        }
+      },
+      "form": {
+        "home": [
+          "D",
+          "L",
+          "L",
+          "L",
+          "D"
+        ],
+        "away": [
+          "W",
+          "W",
+          "L",
+          "W",
+          "D"
+        ]
+      },
+      "has_odds": true,
+      "match_url": "https://www.windrawwin.com/tips/ireland-premier-division/st-patricks-v-bohemians/807486/"
+    },
+    {
+      "teams": {
+        "home": "Bray",
+        "away": "Wexford Youths"
+      },
+      "fixture": "Bray v Wexford Youths",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "2-1"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "L",
+          "L",
+          "L",
+          "W"
+        ],
+        "away": [
+          "L",
+          "D",
+          "L",
+          "D",
+          "W"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/ireland-first-division/bray-v-wexford-youths/807654/"
+    },
+    {
+      "teams": {
+        "home": "Cobh Ramblers",
+        "away": "Athlone Town"
+      },
+      "fixture": "Cobh Ramblers vAthlone Town",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "3-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "W",
+          "W",
+          "L"
+        ],
+        "away": [
+          "L",
+          "D",
+          "D",
+          "L",
+          "L"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/ireland-first-division/cobh-ramblers-v-athlone-town/807655/"
+    },
+    {
+      "teams": {
+        "home": "Finn Harps",
+        "away": "Longford Town"
+      },
+      "fixture": "Finn Harps v Longford Town",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "2-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "L",
+          "D",
+          "D",
+          "W",
+          "W"
+        ],
+        "away": [
+          "L",
+          "D",
+          "W",
+          "W",
+          "L"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/ireland-first-division/finn-harps-v-longford-town/807656/"
+    },
+    {
+      "teams": {
+        "home": "Kerry",
+        "away": "Dundalk"
+      },
+      "fixture": "Kerry v Dundalk",
+      "league": "",
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "W",
+          "L",
+          "L"
+        ],
+        "away": [
+          "W",
+          "D",
+          "D",
+          "L",
+          "W"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/ireland-first-division/kerry-v-dundalk/807657/"
+    },
+    {
+      "teams": {
+        "home": "UCD",
+        "away": "Treaty United"
+      },
+      "fixture": "UCD v Treaty United",
+      "league": "",
+      "prediction": {
+        "type": "Draw",
+        "stake": "Small",
+        "score": "1-1"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "L",
+          "W",
+          "W"
+        ],
+        "away": [
+          "L",
+          "W",
+          "D",
+          "D",
+          "L"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/ireland-first-division/ucd-v-treaty-united/807658/"
+    },
+    {
+      "teams": {
+        "home": "AC Oulu",
+        "away": "KuPS"
+      },
+      "fixture": "AC Oulu v KuPS",
+      "league": "",
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "275",
+          "draw": "240",
+          "away": "-120"
+        },
+        "over_under": {
+          "over": "-143",
+          "under": "110"
+        },
+        "btts": {
+          "yes": "-150",
+          "no": "110"
+        }
+      },
+      "form": {
+        "home": [
+          "D",
+          "D",
+          "L",
+          "L",
+          "W"
+        ],
+        "away": [
+          "D",
+          "L",
+          "L",
+          "W",
+          "W"
+        ]
+      },
+      "has_odds": true,
+      "match_url": "https://www.windrawwin.com/tips/finland-veikkausliiga/ac-oulu-v-kups/811845/"
+    },
+    {
+      "teams": {
+        "home": "Japs",
+        "away": "SalPa"
+      },
+      "fixture": "Japs v SalPa",
+      "league": "Finland Ykkonen",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "2-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "L",
+          "D",
+          "W",
+          "D",
+          "L"
+        ],
+        "away": [
+          "L",
+          "D",
+          "D",
+          "L",
+          "L"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/finland-ykkonen/japs-v-salpa/814462/"
+    },
+    {
+      "teams": {
+        "home": "Lahden Reipas",
+        "away": "VJS"
+      },
+      "fixture": "Lahden Reipas v VJS",
+      "league": "Finland Kakkonen",
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Medium",
+        "score": "2-3"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "W",
+          "W",
+          "L"
+        ],
+        "away": [
+          "W",
+          "L",
+          "W",
+          "L",
+          "W"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/finland-kakkonen/lahden-reipas-v-vjs/818706/"
+    },
+    {
+      "teams": {
+        "home": "Kairat",
+        "away": "FK Turan"
+      },
+      "fixture": "Kairat v FK Turan",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "3-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "D",
+          "W",
+          "W"
+        ],
+        "away": [
+          "L",
+          "L",
+          "L",
+          "L",
+          "L"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/kazakhstan-premier-league/kairat-v-fk-turan/818190/"
+    },
+    {
+      "teams": {
+        "home": "Dinamo Brest",
+        "away": "Slutsk"
+      },
+      "fixture": "Dinamo Brest v Slutsk",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "2-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "L",
+          "W",
+          "L",
+          "L"
+        ],
+        "away": [
+          "W",
+          "L",
+          "L",
+          "W",
+          "L"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/belarus-premier-league/dinamo-brest-v-slutsk/818408/"
+    },
+    {
+      "teams": {
+        "home": "Neman Grodno",
+        "away": "Isloch"
+      },
+      "fixture": "Neman Grodno v Isloch",
+      "league": "",
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "L",
+          "W",
+          "W",
+          "D"
+        ],
+        "away": [
+          "W",
+          "W",
+          "L",
+          "W",
+          "L"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/belarus-premier-league/neman-grodno-v-isloch/818412/"
+    },
+    {
+      "teams": {
+        "home": "Torpedo Zhodino",
+        "away": "FC Molodechno"
+      },
+      "fixture": "Torpedo Zhodino vFC Molodechno",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "2-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "W",
+          "W",
+          "W"
+        ],
+        "away": [
+          "L",
+          "L",
+          "L",
+          "D",
+          "W"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/belarus-premier-league/torpedo-zhodino-v-fc-molodechno/818411/"
+    },
+    {
+      "teams": {
+        "home": "Paide Linnameeskond",
+        "away": "Levadia Tallinn"
+      },
+      "fixture": "Paide Linnameeskond vLevadia Tallinn",
+      "league": "",
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Medium",
+        "score": "0-1"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "W",
+          "W",
+          "W"
+        ],
+        "away": [
+          "W",
+          "W",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/estonia-meistriliiga/paide-linnameeskond-v-levadia-tallinn/815732/"
+    },
+    {
+      "teams": {
+        "home": "Rigas FS",
+        "away": "FK Liepaja"
+      },
+      "fixture": "Rigas FS v FK Liepaja",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "3-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "L",
+          "W",
+          "W",
+          "W"
+        ],
+        "away": [
+          "D",
+          "W",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/latvia-virsliga/rigas-fs-v-fk-liepaja/816231/"
+    },
+    {
+      "teams": {
+        "home": "Zalgiris",
+        "away": "Banga"
+      },
+      "fixture": "Zalgiris v Banga",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "1-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "D",
+          "D",
+          "D",
+          "L",
+          "W"
+        ],
+        "away": [
+          "L",
+          "L",
+          "D",
+          "L",
+          "W"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/lithuania-a-lyga/zalgiris-v-banga/824637/"
+    },
+    {
+      "teams": {
+        "home": "Coritiba",
+        "away": "Volta Redonda"
+      },
+      "fixture": "Coritiba v Volta Redonda",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "1-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "-154",
+          "draw": "220",
+          "away": "475"
+        },
+        "over_under": {
+          "over": "170",
+          "under": "-225"
+        },
+        "btts": {
+          "yes": "162",
+          "no": "-225"
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "D",
+          "W",
+          "W"
+        ],
+        "away": [
+          "W",
+          "L",
+          "D",
+          "L",
+          "W"
+        ]
+      },
+      "has_odds": true,
+      "match_url": "https://www.windrawwin.com/tips/brazil-serie-b/coritiba-v-volta-redonda/817551/"
+    },
+    {
+      "teams": {
+        "home": "Recoleta",
+        "away": "Sportivo Trinidense"
+      },
+      "fixture": "Recoleta vSportivo Trinidense",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "1-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "220",
+          "draw": "220",
+          "away": "120"
+        },
+        "over_under": {
+          "over": "115",
+          "under": "-150"
+        },
+        "btts": {
+          "yes": "-120",
+          "no": "-120"
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "D",
+          "L",
+          "D"
+        ],
+        "away": [
+          "W",
+          "D",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "has_odds": true,
+      "match_url": "https://www.windrawwin.com/tips/paraguay-primera-division/recoleta-v-sportivo-trinidense/828897/"
+    },
+    {
+      "teams": {
+        "home": "Chankas",
+        "away": "Asociacion Deportiva Tarma"
+      },
+      "fixture": "Chankas vAsociacion Deportiva Tarma",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "3-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "155",
+          "draw": "230",
+          "away": "170"
+        },
+        "over_under": {
+          "over": "-118",
+          "under": "-106"
+        },
+        "btts": {
+          "yes": "-150",
+          "no": "110"
+        }
+      },
+      "form": {
+        "home": [
+          "D",
+          "L",
+          "L",
+          "W",
+          "W"
+        ],
+        "away": [
+          "D",
+          "L",
+          "L",
+          "L",
+          "D"
+        ]
+      },
+      "has_odds": true,
+      "match_url": "https://www.windrawwin.com/tips/peru-primera/chankas-v-asociacion-deportiva-tarma/822961/"
+    },
+    {
+      "teams": {
+        "home": "Sport Huancayo",
+        "away": "UTC De Cajamarca"
+      },
+      "fixture": "Sport Huancayo vUTC De Cajamarca",
+      "league": "",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "3-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "-200",
+          "draw": "300",
+          "away": "525"
+        },
+        "over_under": {
+          "over": "-118",
+          "under": "-106"
+        },
+        "btts": {
+          "yes": "-111",
+          "no": "-125"
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "D",
+          "D",
+          "L"
+        ],
+        "away": [
+          "W",
+          "L",
+          "L",
+          "W",
+          "D"
+        ]
+      },
+      "has_odds": true,
+      "match_url": "https://www.windrawwin.com/tips/peru-primera/sport-huancayo-v-utc-de-cajamarca/822951/"
+    },
+    {
+      "teams": {
+        "home": "Academia Puerto Cabello",
+        "away": "Metropolitanos"
+      },
+      "fixture": "Academia Puerto Cabello vMetropolitanos",
+      "league": "",
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Small",
+        "score": "0-2"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "D",
+          "D",
+          "D",
+          "L",
+          "L"
+        ],
+        "away": [
+          "L",
+          "D",
+          "D",
+          "W",
+          "D"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/venezuela-primera-division/academia-puerto-cabello-v-metropolitanos/833624/"
+    },
+    {
+      "teams": {
+        "home": "Sogdiana Jizzakh",
+        "away": "Kokand 1912"
+      },
+      "fixture": "Sogdiana Jizzakh vKokand 1912",
+      "league": "Uzbekistan Super League",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "2-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "L",
+          "D",
+          "D",
+          "W",
+          "L"
+        ],
+        "away": [
+          "L",
+          "L",
+          "L",
+          "L",
+          "L"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/uzbekistan-super-league/sogdiana-jizzakh-v-kokand-1912/823040/"
+    },
+    {
+      "teams": {
+        "home": "Surkhon Termez",
+        "away": "Bukhara"
+      },
+      "fixture": "Surkhon Termez v Bukhara",
+      "league": "Uzbekistan Super League",
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "2-0"
+      },
+      "odds": {
+        "match_odds": {
+          "home": "",
+          "draw": "",
+          "away": ""
+        },
+        "over_under": {
+          "over": "",
+          "under": ""
+        },
+        "btts": {
+          "yes": "",
+          "no": ""
+        }
+      },
+      "form": {
+        "home": [
+          "W",
+          "L",
+          "D",
+          "L",
+          "W"
+        ],
+        "away": [
+          "D",
+          "D",
+          "D",
+          "L",
+          "W"
+        ]
+      },
+      "has_odds": false,
+      "match_url": "https://www.windrawwin.com/tips/uzbekistan-super-league/surkhon-termez-v-bukhara/823041/"
+    }
+  ]
+}
