@@ -21,7 +21,7 @@ class FixedWindrawWinScraper:
     """Fixed scraper class for windrawwin.com predictions with precise odds extraction"""
     
     def __init__(self):
-        self.base_url = "https://www.windrawwin.com/predictions/tomorrow/"
+        self.base_url = "https://www.windrawwin.com/predictions/today/"
         self.setup_logging()
         self.browser: Optional[Browser] = None
         self.page: Optional[Page] = None
