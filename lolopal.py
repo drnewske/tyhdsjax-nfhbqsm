@@ -24,7 +24,7 @@ class SimplifiedWindrawWinScraper:
         self.base_url = "https://www.windrawwin.com/predictions/today/"
         self.bet_urls = [
             "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599",
-            "stake.com/?c=Z6Kt1NA0"
+            "https://stake.com/?c=Z6Kt1NA0"
         ]
         self.setup_logging()
         self.browser: Optional[Browser] = None
