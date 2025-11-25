@@ -1,760 +1,1460 @@
 {
   "scrape_info": {
-    "timestamp": "2025-11-24T07:13:38.258378+00:00",
-    "total_matches": 35,
+    "timestamp": "2025-11-25T07:14:10.006942+00:00",
+    "total_matches": 62,
     "source_url": "https://www.windrawwin.com/predictions/today/"
   },
   "matches": [
     {
       "teams": {
-        "home": "Man Utd",
-        "away": "Everton"
+        "home": "Ajax",
+        "away": "Benfica"
+      },
+      "prediction": {
+        "type": "Draw",
+        "stake": "Small",
+        "score": "1-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "L",
+          "L",
+          "L"
+        ],
+        "away": [
+          "L",
+          "W",
+          "W",
+          "L",
+          "D"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Bodo/Glimt",
+        "away": "Juventus"
+      },
+      "prediction": {
+        "type": "Draw",
+        "stake": "Large",
+        "score": "1-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "L",
+          "L",
+          "W",
+          "W"
+        ],
+        "away": [
+          "W",
+          "W",
+          "D",
+          "D",
+          "D"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Borussia Dortmund",
+        "away": "Villarreal"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Small",
+        "score": "2-1"
+      },
+      "form": {
+        "home": [
+          "D",
+          "W",
+          "L",
+          "D",
+          "D"
+        ],
+        "away": [
+          "W",
+          "W",
+          "L",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Chelsea",
+        "away": "Barcelona"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Small",
+        "score": "2-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "D",
+          "W",
+          "W"
+        ],
+        "away": [
+          "L",
+          "W",
+          "D",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Galatasaray",
+        "away": "Union Saint Gilloise"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Small",
+        "score": "2-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "W",
+          "L",
+          "W"
+        ],
+        "away": [
+          "W",
+          "W",
+          "L",
+          "D",
+          "W"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Man City",
+        "away": "Bayer Leverkusen"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "3-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "W",
+          "W",
+          "L"
+        ],
+        "away": [
+          "W",
+          "L",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Marseille",
+        "away": "Newcastle"
+      },
+      "prediction": {
+        "type": "Draw",
+        "stake": "Large",
+        "score": "1-1"
+      },
+      "form": {
+        "home": [
+          "D",
+          "W",
+          "L",
+          "W",
+          "W"
+        ],
+        "away": [
+          "W",
+          "L",
+          "W",
+          "L",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Napoli",
+        "away": "Qarabagh"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "2-0"
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "D",
+          "L",
+          "W"
+        ],
+        "away": [
+          "D",
+          "W",
+          "D",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Slavia Prague",
+        "away": "Athletic Bilbao"
+      },
+      "prediction": {
+        "type": "Draw",
+        "stake": "Medium",
+        "score": "1-1"
+      },
+      "form": {
+        "home": [
+          "D",
+          "W",
+          "L",
+          "W",
+          "W"
+        ],
+        "away": [
+          "L",
+          "L",
+          "L",
+          "W",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Hull",
+        "away": "Ipswich"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Medium",
+        "score": "1-2"
+      },
+      "form": {
+        "home": [
+          "D",
+          "W",
+          "L",
+          "W",
+          "L"
+        ],
+        "away": [
+          "W",
+          "W",
+          "D",
+          "W",
+          "D"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Middlesbrough",
+        "away": "Coventry"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "D",
+          "L",
+          "D",
+          "W",
+          "D"
+        ],
+        "away": [
+          "W",
+          "L",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Norwich",
+        "away": "Oxford Utd"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "D",
+          "L",
+          "L"
+        ],
+        "away": [
+          "W",
+          "D",
+          "L",
+          "L",
+          "D"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Southampton",
+        "away": "Leicester"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Small",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "W",
+          "W",
+          "W"
+        ],
+        "away": [
+          "L",
+          "L",
+          "D",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Stoke",
+        "away": "Charlton"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Small",
+        "score": "1-0"
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "W",
+          "L",
+          "L"
+        ],
+        "away": [
+          "D",
+          "D",
+          "W",
+          "L",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Swansea",
+        "away": "Derby"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "L",
+          "L",
+          "L"
+        ],
+        "away": [
+          "W",
+          "W",
+          "W",
+          "W",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Watford",
+        "away": "Preston"
+      },
+      "prediction": {
+        "type": "Draw",
+        "stake": "Large",
+        "score": "1-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "D",
+          "D",
+          "W"
+        ],
+        "away": [
+          "W",
+          "W",
+          "W",
+          "D",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Luton",
+        "away": "Huddersfield"
+      },
+      "prediction": {
+        "type": "Draw",
+        "stake": "Large",
+        "score": "1-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "W",
+          "D",
+          "L"
+        ],
+        "away": [
+          "L",
+          "L",
+          "L",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Peterborough",
+        "away": "Stevenage"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Small",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "L",
+          "W",
+          "W"
+        ],
+        "away": [
+          "W",
+          "L",
+          "D",
+          "L",
+          "D"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "AFC Fylde",
+        "away": "Macclesfield FC"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "L",
+          "W",
+          "L"
+        ],
+        "away": [
+          "W",
+          "W",
+          "W",
+          "W",
+          "D"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Chester",
+        "away": "Hereford"
       },
       "prediction": {
         "type": "Home Win",
         "stake": "Medium",
+        "score": "2-0"
+      },
+      "form": {
+        "home": [
+          "L",
+          "D",
+          "W",
+          "D",
+          "W"
+        ],
+        "away": [
+          "D",
+          "L",
+          "D",
+          "L",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Chorley",
+        "away": "Spennymoor Town"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Small",
+        "score": "2-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "L",
+          "D",
+          "W"
+        ],
+        "away": [
+          "L",
+          "D",
+          "W",
+          "L",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Darlington",
+        "away": "Curzon Ashton"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Small",
+        "score": "1-2"
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "W",
+          "W",
+          "W"
+        ],
+        "away": [
+          "W",
+          "D",
+          "D",
+          "L",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Kings Lynn",
+        "away": "Buxton"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Small",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "D",
+          "W",
+          "D"
+        ],
+        "away": [
+          "W",
+          "L",
+          "L",
+          "L",
+          "W"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Marine FC",
+        "away": "Kidderminster"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "D",
+          "W",
+          "W",
+          "D"
+        ],
+        "away": [
+          "W",
+          "D",
+          "W",
+          "L",
+          "D"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Merthyr Town",
+        "away": "Leamington"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "2-0"
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "W",
+          "W",
+          "W"
+        ],
+        "away": [
+          "L",
+          "D",
+          "L",
+          "L",
+          "L"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Peterborough Sports",
+        "away": "Bedford Town"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Small",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "L",
+          "L",
+          "L",
+          "W"
+        ],
+        "away": [
+          "W",
+          "L",
+          "L",
+          "W",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Scarborough Athletic",
+        "away": "Alfreton Town"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "3-0"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "L",
+          "L",
+          "W"
+        ],
+        "away": [
+          "D",
+          "W",
+          "L",
+          "W",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Southport",
+        "away": "Radcliffe Borough"
+      },
+      "prediction": {
+        "type": "Draw",
+        "stake": "Large",
+        "score": "2-2"
+      },
+      "form": {
+        "home": [
+          "D",
+          "W",
+          "W",
+          "D",
+          "D"
+        ],
+        "away": [
+          "D",
+          "W",
+          "W",
+          "D",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Telford Utd",
+        "away": "Oxford City"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "3-0"
+      },
+      "form": {
+        "home": [
+          "W",
+          "L",
+          "D",
+          "L",
+          "D"
+        ],
+        "away": [
+          "L",
+          "W",
+          "W",
+          "L",
+          "D"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Worksop Town",
+        "away": "South Shields"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "L",
+          "L",
+          "L"
+        ],
+        "away": [
+          "W",
+          "D",
+          "L",
+          "W",
+          "D"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Chippenham Town",
+        "away": "Farnborough Town"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "2-0"
+      },
+      "form": {
+        "home": [
+          "L",
+          "D",
+          "L",
+          "D",
+          "W"
+        ],
+        "away": [
+          "D",
+          "L",
+          "W",
+          "L",
+          "L"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Dagenham and Redbridge",
+        "away": "Chesham Utd"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Small",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "W",
+          "D",
+          "W"
+        ],
+        "away": [
+          "W",
+          "W",
+          "D",
+          "L",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Ebbsfleet Utd",
+        "away": "Horsham"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Small",
+        "score": "1-0"
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "W",
+          "L",
+          "W"
+        ],
+        "away": [
+          "W",
+          "D",
+          "W",
+          "D",
+          "D"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Enfield Town",
+        "away": "Maidstone Utd"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "L",
+          "L",
+          "W"
+        ],
+        "away": [
+          "W",
+          "L",
+          "L",
+          "W",
+          "L"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Hampton and Richmond",
+        "away": "Tonbridge Angels"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "L",
+          "D",
+          "L"
+        ],
+        "away": [
+          "W",
+          "L",
+          "L",
+          "D",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Hemel Hempstead",
+        "away": "Chelmsford City"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "1-0"
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "W",
+          "L",
+          "D"
+        ],
+        "away": [
+          "W",
+          "W",
+          "W",
+          "W",
+          "L"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Salisbury",
+        "away": "Maidenhead Utd"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "1-0"
+      },
+      "form": {
+        "home": [
+          "L",
+          "D",
+          "W",
+          "W",
+          "W"
+        ],
+        "away": [
+          "L",
+          "L",
+          "L",
+          "L",
+          "L"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Slough Town",
+        "away": "AFC Totton"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "L",
+          "W",
+          "L"
+        ],
+        "away": [
+          "W",
+          "W",
+          "L",
+          "L",
+          "D"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Torquay",
+        "away": "Worthing"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "W",
+          "W",
+          "W"
+        ],
+        "away": [
+          "W",
+          "W",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Weston Super Mare",
+        "away": "Bath"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "2-0"
+      },
+      "form": {
+        "home": [
+          "D",
+          "L",
+          "W",
+          "W",
+          "L"
+        ],
+        "away": [
+          "L",
+          "W",
+          "D",
+          "D",
+          "W"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Motherwell",
+        "away": "Hibernian"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Medium",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "W",
+          "D",
+          "W"
+        ],
+        "away": [
+          "W",
+          "L",
+          "D",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Partick",
+        "away": "Dunfermline"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "2-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "L",
+          "W",
+          "D",
+          "W"
+        ],
+        "away": [
+          "W",
+          "L",
+          "W",
+          "D",
+          "W"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Alloa",
+        "away": "Inverness CT"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "D",
+          "D",
+          "W",
+          "W",
+          "D"
+        ],
+        "away": [
+          "D",
+          "W",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Coleraine",
+        "away": "Larne"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Medium",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "W",
+          "D",
+          "L"
+        ],
+        "away": [
+          "W",
+          "D",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Linfield",
+        "away": "Crusaders"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "2-0"
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "D",
+          "D",
+          "W"
+        ],
+        "away": [
+          "L",
+          "L",
+          "W",
+          "W",
+          "D"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Hertha Zehlendorf",
+        "away": "Chemie Leipzig"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Medium",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "D",
+          "W",
+          "L",
+          "L",
+          "D"
+        ],
+        "away": [
+          "W",
+          "L",
+          "W",
+          "L",
+          "W"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "TSG Balingen",
+        "away": "Sonnenhof Grossaspach"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "1-3"
+      },
+      "form": {
+        "home": [
+          "L",
+          "D",
+          "L",
+          "W",
+          "L"
+        ],
+        "away": [
+          "D",
+          "W",
+          "D",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Bastia",
+        "away": "Stade Lavallois"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "W",
+          "L",
+          "L"
+        ],
+        "away": [
+          "L",
+          "D",
+          "L",
+          "W",
+          "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "ADO Den Haag",
+        "away": "De Graafschap"
+      },
+      "prediction": {
+        "type": "Draw",
+        "stake": "Small",
+        "score": "2-2"
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "W",
+          "W",
+          "L"
+        ],
+        "away": [
+          "D",
+          "W",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "RKC Waalwijk",
+        "away": "MVV Maastricht"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
         "score": "3-0"
       },
       "form": {
         "home": [
           "W",
           "W",
-          "W",
-          "D",
-          "D"
-        ],
-        "away": [
-          "W",
-          "L",
-          "L",
-          "D",
-          "W"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Sassuolo",
-        "away": "Pisa"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Medium",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
           "D",
           "L",
-          "W",
-          "L",
-          "W"
-        ],
-        "away": [
-          "D",
-          "D",
-          "D",
-          "D",
-          "W"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Torino",
-        "away": "Como"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Small",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
-          "W",
-          "W",
-          "D",
-          "D",
           "D"
         ],
         "away": [
           "W",
           "D",
-          "W",
-          "D",
-          "D"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Sampdoria",
-        "away": "Juve Stabia"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Large",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
           "L",
-          "D",
-          "D",
           "L",
           "L"
-        ],
-        "away": [
-          "L",
-          "W",
-          "D",
-          "L",
-          "W"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Livorno",
-        "away": "Torres"
-      },
-      "prediction": {
-        "type": "Home Win",
-        "stake": "Medium",
-        "score": "1-0"
-      },
-      "form": {
-        "home": [
-          "W",
-          "L",
-          "L",
-          "L",
-          "D"
-        ],
-        "away": [
-          "L",
-          "D",
-          "L",
-          "L",
-          "D"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Perugia",
-        "away": "Vis Pesaro"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Large",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
-          "L",
-          "W",
-          "D",
-          "D",
-          "D"
-        ],
-        "away": [
-          "W",
-          "D",
-          "W",
-          "D",
-          "W"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Espanyol",
-        "away": "Sevilla"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Small",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
-          "L",
-          "W",
-          "W",
-          "L",
-          "L"
-        ],
-        "away": [
-          "W",
-          "L",
-          "L",
-          "L",
-          "W"
         ]
       },
       "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
     },
     {
       "teams": {
-        "home": "Real Sociedad II",
-        "away": "Valladolid"
-      },
-      "prediction": {
-        "type": "Draw",
-        "stake": "Medium",
-        "score": "1-1"
-      },
-      "form": {
-        "home": [
-          "L",
-          "L",
-          "W",
-          "W",
-          "L"
-        ],
-        "away": [
-          "L",
-          "D",
-          "W",
-          "D",
-          "L"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Reims",
-        "away": "Montpellier"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Large",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
-          "D",
-          "D",
-          "W",
-          "L",
-          "W"
-        ],
-        "away": [
-          "W",
-          "W",
-          "D",
-          "W",
-          "W"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Almere City",
-        "away": "VVV Venlo"
+        "home": "Roda JC",
+        "away": "FC Dordrecht"
       },
       "prediction": {
         "type": "Home Win",
         "stake": "Small",
-        "score": "3-1"
-      },
-      "form": {
-        "home": [
-          "L",
-          "L",
-          "W",
-          "W",
-          "L"
-        ],
-        "away": [
-          "L",
-          "W",
-          "L",
-          "W",
-          "L"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "AZ II",
-        "away": "TOP Oss"
-      },
-      "prediction": {
-        "type": "Draw",
-        "stake": "Large",
-        "score": "2-2"
-      },
-      "form": {
-        "home": [
-          "W",
-          "W",
-          "L",
-          "L",
-          "W"
-        ],
-        "away": [
-          "D",
-          "D",
-          "L",
-          "D",
-          "D"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "FC Utrecht II",
-        "away": "FC Den Bosch"
-      },
-      "prediction": {
-        "type": "Draw",
-        "stake": "Large",
-        "score": "2-2"
-      },
-      "form": {
-        "home": [
-          "W",
-          "D",
-          "D",
-          "L",
-          "D"
-        ],
-        "away": [
-          "W",
-          "L",
-          "L",
-          "W",
-          "W"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Helmond Sport",
-        "away": "Jong Ajax"
-      },
-      "prediction": {
-        "type": "Home Win",
-        "stake": "Large",
-        "score": "3-1"
-      },
-      "form": {
-        "home": [
-          "L",
-          "L",
-          "W",
-          "L",
-          "L"
-        ],
-        "away": [
-          "D",
-          "L",
-          "L",
-          "D",
-          "L"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Rotor Volgograd",
-        "away": "FC Chelyabinsk"
-      },
-      "prediction": {
-        "type": "Home Win",
-        "stake": "Large",
-        "score": "1-0"
-      },
-      "form": {
-        "home": [
-          "L",
-          "D",
-          "L",
-          "W",
-          "L"
-        ],
-        "away": [
-          "D",
-          "L",
-          "L",
-          "W",
-          "D"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Randers FC",
-        "away": "Odense BK"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Large",
-        "score": "1-2"
-      },
-      "form": {
-        "home": [
-          "W",
-          "L",
-          "D",
-          "L",
-          "L"
-        ],
-        "away": [
-          "D",
-          "W",
-          "L",
-          "W",
-          "D"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Istanbul Basaksehir",
-        "away": "Trabzonspor"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Large",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
-          "L",
-          "D",
-          "W",
-          "W",
-          "L"
-        ],
-        "away": [
-          "W",
-          "W",
-          "W",
-          "D",
-          "D"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Konyaspor",
-        "away": "Antalyaspor"
-      },
-      "prediction": {
-        "type": "Draw",
-        "stake": "Medium",
-        "score": "1-1"
-      },
-      "form": {
-        "home": [
-          "L",
-          "L",
-          "W",
-          "L",
-          "L"
-        ],
-        "away": [
-          "L",
-          "L",
-          "L",
-          "W",
-          "L"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Serik Belediyespor",
-        "away": "Sariyer SK"
-      },
-      "prediction": {
-        "type": "Home Win",
-        "stake": "Medium",
         "score": "2-0"
       },
       "form": {
         "home": [
-          "D",
-          "L",
-          "L",
-          "W",
-          "W"
-        ],
-        "away": [
-          "L",
-          "W",
-          "D",
-          "L",
-          "W"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Botev Vratsa",
-        "away": "Slavia Sofia"
-      },
-      "prediction": {
-        "type": "Draw",
-        "stake": "Medium",
-        "score": "1-1"
-      },
-      "form": {
-        "home": [
-          "L",
-          "L",
-          "W",
-          "D",
-          "W"
-        ],
-        "away": [
           "W",
           "D",
           "D",
-          "W",
-          "W"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Krasava ENY Ypsonas",
-        "away": "Akritas Chlorakas"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Small",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
-          "L",
-          "L",
-          "L",
-          "L",
-          "L"
-        ],
-        "away": [
-          "L",
-          "D",
-          "L",
           "L",
           "D"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Larissa",
-        "away": "OFI Crete"
-      },
-      "prediction": {
-        "type": "Draw",
-        "stake": "Small",
-        "score": "2-2"
-      },
-      "form": {
-        "home": [
-          "L",
-          "L",
-          "W",
-          "L",
-          "L"
         ],
         "away": [
-          "W",
-          "L",
-          "L",
-          "L",
-          "L"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Volos Nps",
-        "away": "Levadiakos"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Medium",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
-          "W",
-          "W",
           "L",
           "W",
-          "W"
-        ],
-        "away": [
-          "W",
+          "L",
           "D",
-          "D",
-          "W",
-          "W"
+          "D"
         ]
       },
       "place_bet": "https://stake.com/?c=Z6Kt1NA0"
     },
     {
       "teams": {
-        "home": "Rabotnicki",
-        "away": "Struga"
+        "home": "Vitesse",
+        "away": "Jong PSV"
       },
       "prediction": {
         "type": "Away Win",
         "stake": "Large",
-        "score": "1-2"
-      },
-      "form": {
-        "home": [
-          "D",
-          "D",
-          "D",
-          "L",
-          "L"
-        ],
-        "away": [
-          "D",
-          "L",
-          "W",
-          "W",
-          "W"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Pogon Szczecin",
-        "away": "Zaglebie Lubin"
-      },
-      "prediction": {
-        "type": "Draw",
-        "stake": "Medium",
-        "score": "2-2"
-      },
-      "form": {
-        "home": [
-          "W",
-          "D",
-          "W",
-          "L",
-          "L"
-        ],
-        "away": [
-          "L",
-          "W",
-          "D",
-          "D",
-          "W"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Botosani",
-        "away": "Dinamo Bucharest"
-      },
-      "prediction": {
-        "type": "Draw",
-        "stake": "Large",
-        "score": "2-2"
-      },
-      "form": {
-        "home": [
-          "W",
-          "W",
-          "W",
-          "D",
-          "L"
-        ],
-        "away": [
-          "W",
-          "L",
-          "D",
-          "W",
-          "W"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Metaloglobus Bucuresti",
-        "away": "Hermannstadt"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Small",
-        "score": "0-1"
+        "score": "2-3"
       },
       "form": {
         "home": [
           "L",
-          "W",
           "D",
-          "L",
-          "L"
-        ],
-        "away": [
-          "L",
-          "L",
-          "L",
-          "L",
-          "D"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Bravo",
-        "away": "Radomlje"
-      },
-      "prediction": {
-        "type": "Draw",
-        "stake": "Small",
-        "score": "2-2"
-      },
-      "form": {
-        "home": [
-          "D",
-          "W",
           "W",
           "L",
           "D"
         ],
         "away": [
           "L",
-          "D",
-          "D",
+          "L",
+          "W",
           "W",
           "D"
         ]
@@ -763,108 +1463,24 @@
     },
     {
       "teams": {
-        "home": "Zorya Luhansk",
-        "away": "Oleksandriya"
+        "home": "Shkupi Skopje",
+        "away": "Pelister"
       },
       "prediction": {
         "type": "Home Win",
         "stake": "Medium",
-        "score": "1-0"
-      },
-      "form": {
-        "home": [
-          "W",
-          "D",
-          "D",
-          "W",
-          "W"
-        ],
-        "away": [
-          "L",
-          "D",
-          "L",
-          "D",
-          "L"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Kano Pillars",
-        "away": "Ikorodu City"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Large",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
-          "L",
-          "L",
-          "D",
-          "L",
-          "L"
-        ],
-        "away": [
-          "W",
-          "D",
-          "W",
-          "W",
-          "W"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Katsina United",
-        "away": "Enyimba"
-      },
-      "prediction": {
-        "type": "Home Win",
-        "stake": "Medium",
-        "score": "1-0"
-      },
-      "form": {
-        "home": [
-          "L",
-          "W",
-          "D",
-          "D",
-          "L"
-        ],
-        "away": [
-          "L",
-          "L",
-          "W",
-          "D",
-          "L"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Sofapaka",
-        "away": "Ulinzi Stars"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Large",
-        "score": "0-1"
+        "score": "2-1"
       },
       "form": {
         "home": [
           "D",
-          "W",
           "L",
-          "W",
+          "L",
+          "L",
           "L"
         ],
         "away": [
-          "L",
+          "D",
           "L",
           "D",
           "L",
@@ -875,64 +1491,8 @@
     },
     {
       "teams": {
-        "home": "Deportivo Riestra",
-        "away": "Barracas Central"
-      },
-      "prediction": {
-        "type": "Away Win",
-        "stake": "Medium",
-        "score": "0-1"
-      },
-      "form": {
-        "home": [
-          "D",
-          "W",
-          "L",
-          "L",
-          "D"
-        ],
-        "away": [
-          "D",
-          "L",
-          "W",
-          "D",
-          "D"
-        ]
-      },
-      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
-    },
-    {
-      "teams": {
-        "home": "Racing Club",
-        "away": "River Plate"
-      },
-      "prediction": {
-        "type": "Home Win",
-        "stake": "Medium",
-        "score": "1-0"
-      },
-      "form": {
-        "home": [
-          "W",
-          "W",
-          "D",
-          "W",
-          "W"
-        ],
-        "away": [
-          "L",
-          "W",
-          "L",
-          "L",
-          "D"
-        ]
-      },
-      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
-    },
-    {
-      "teams": {
-        "home": "Mirassol",
-        "away": "Ceara"
+        "home": "Pyramids FC",
+        "away": "Al Moqawloon Al Arab"
       },
       "prediction": {
         "type": "Home Win",
@@ -942,16 +1502,72 @@
       "form": {
         "home": [
           "W",
-          "D",
+          "W",
+          "W",
+          "W",
+          "W"
+        ],
+        "away": [
           "L",
+          "L",
+          "D",
           "W",
           "D"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "Orlando Pirates",
+        "away": "Chippa United"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "1-0"
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "W",
+          "D",
+          "W"
+        ],
+        "away": [
+          "D",
+          "D",
+          "L",
+          "L",
+          "D"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "KMC",
+        "away": "Mtibwa Sugar"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Small",
+        "score": "1-0"
+      },
+      "form": {
+        "home": [
+          "L",
+          "L",
+          "L",
+          "L",
+          "L"
         ],
         "away": [
           "L",
           "W",
           "D",
-          "W",
+          "D",
           "L"
         ]
       },
@@ -959,31 +1575,171 @@
     },
     {
       "teams": {
-        "home": "Nublense",
-        "away": "Huachipato"
+        "home": "Maroons",
+        "away": "Lugazi Municipal"
       },
       "prediction": {
-        "type": "Away Win",
-        "stake": "Small",
-        "score": "0-1"
+        "type": "Home Win",
+        "stake": "Large",
+        "score": "1-0"
       },
       "form": {
         "home": [
+          "W",
+          "D",
+          "L",
+          "D",
+          "L"
+        ],
+        "away": [
+          "D",
+          "D",
+          "L",
+          "W",
+          "D"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "NEC FC",
+        "away": "Calvary"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "1-0"
+      },
+      "form": {
+        "home": [
+          "D",
+          "L",
+          "W",
+          "D",
+          "L"
+        ],
+        "away": [
           "L",
           "D",
           "L",
           "L",
           "L"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
+    },
+    {
+      "teams": {
+        "home": "UDPF",
+        "away": "SC Villa"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "1-0"
+      },
+      "form": {
+        "home": [
+          "W",
+          "L",
+          "L",
+          "L",
+          "W"
         ],
         "away": [
-          "L",
-          "L",
           "D",
+          "W",
+          "W",
           "W",
           "W"
         ]
       },
       "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Gor Mahia",
+        "away": "APS Bomet"
+      },
+      "prediction": {
+        "type": "Home Win",
+        "stake": "Medium",
+        "score": "1-0"
+      },
+      "form": {
+        "home": [
+          "W",
+          "W",
+          "D",
+          "W",
+          "W"
+        ],
+        "away": [
+          "W",
+          "L",
+          "D",
+          "D",
+          "L"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "FC Telavi",
+        "away": "Dinamo Batumi"
+      },
+      "prediction": {
+        "type": "Draw",
+        "stake": "Large",
+        "score": "1-1"
+      },
+      "form": {
+        "home": [
+          "W",
+          "D",
+          "L",
+          "L",
+          "D"
+        ],
+        "away": [
+          "L",
+          "L",
+          "L",
+          "L",
+          "L"
+        ]
+      },
+      "place_bet": "https://refpa3267686.top/L?tag=d_4524740m_1599c_&site=4524740&ad=1599"
+    },
+    {
+      "teams": {
+        "home": "Gagra",
+        "away": "Gareji Sagarejo"
+      },
+      "prediction": {
+        "type": "Away Win",
+        "stake": "Large",
+        "score": "0-1"
+      },
+      "form": {
+        "home": [
+          "L",
+          "W",
+          "D",
+          "L",
+          "W"
+        ],
+        "away": [
+          "W",
+          "L",
+          "W",
+          "L",
+          "D"
+        ]
+      },
+      "place_bet": "https://stake.com/?c=Z6Kt1NA0"
     }
   ]
 }
